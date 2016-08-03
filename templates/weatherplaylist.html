@@ -1,4 +1,13 @@
-<h1>Testing to see</h1>
+<form id="bookForm" class="col-md-8 col-md-offset-2">
+  <h2>Search weather</h2>
+  <input type="text" id="playlistInput" class="form-control" placeholder="Search weather" ng-model="playlistSearch">
+  <button type="submit" class='btn btn-info' ng-click="weatherPlaylistCtrl.getPlaylists(playlistSearch)">Search</button>
+  <!-- <button type="submit" class='btn btn-info' ng-click="weatherPlaylistCtrl.sunny()">Sunny</button> -->
+</form>
+
 <div class="row" ng-repeat="playlist in weatherPlaylistCtrl.playlists">
-  <h3>{{playlist.name}}</h3>
+  <div class="cover">
+    <h3>{{playlist.name}}</h3>
+    <a href="{{playlist.external_urls.spotify}}" target="_blank"><img class="thumbnail" src="{{playlist.images[0].url}}"></a>
+  </div>
 </div>
