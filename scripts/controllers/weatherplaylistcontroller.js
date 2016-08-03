@@ -8,12 +8,14 @@ function WeatherPlaylistController($http) {
 
   var vm = this;
 
-  vm.sayHi = sayHi;
-
-  ////
-
-  function sayHi(name) {
-    return "Hello " + name;
-  }
+  $http({
+    method: 'GET',
+    url: 'https://api.spotify.com/v1/search?q=sunny&type=playlist'
+  }).then(function successCallback(succ) {
+    vm.playlists = succ.data.playlists.items;
+    console.log(vm.playlists);
+  }, function errorCallback(err) {
+    console.log('error', err);
+  });
 
 }
